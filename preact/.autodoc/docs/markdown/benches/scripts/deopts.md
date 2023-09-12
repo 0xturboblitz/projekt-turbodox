@@ -1,0 +1,32 @@
+[View code on GitHub](https://github.com/preactjs/preact/benches/scripts/deopts.js)
+
+The code provided is a part of the Preact project and is responsible for running benchmarks and analyzing the performance of the Preact framework using tools like Tachometer and v8-deopt-viewer.
+
+The code begins by importing necessary modules and functions from other files in the project. It imports functions like `mkdir` from the `fs/promises` module, `spawn` from the `child_process` module, and various utility functions from the `utils.js`, `config.js`, and `bench.js` files.
+
+The code then defines a constant `defaultDeoptsOptions` which contains default options for running the v8-deopt-viewer tool. These options include the framework to be tested (`preact-local`), the timeout duration (5 seconds), and whether to open the results in a browser (true if not running in a CI environment).
+
+The code also defines a function `getResultDir` which takes a benchmark name and a framework name as input and returns the path to the directory where the results of the v8-deopt-viewer tool will be stored.
+
+Next, the code defines an async function `runPackage` which takes a package name, an array of arguments, and an optional `stdio` parameter. This function uses the `getPkgBinPath` function to get the path to the binary file of the specified package, prepends it to the array of arguments, and then spawns a child process using `spawn` to run the package with the provided arguments.
+
+The code also defines an async function `onExit` which takes a child process as input and returns a promise that resolves when the child process exits. This function listens for the `exit` and `error` events of the child process and resolves or rejects the promise based on the exit code or error.
+
+Another async function `getTachometerURLs` is defined, which takes a Tachometer child process, a Tachometer config object, and an optional timeout duration as input. This function returns a promise that resolves with an array of TachURL objects. This function listens for the stdout data of the Tachometer process and searches for URLs in the output. It uses regular expressions to match lines containing benchmark names and framework names, and extracts the corresponding URLs. Once all URLs are found, the promise is resolved with the array of TachURL objects.
+
+The code also defines a function `createPrefixTransform` which takes a prefix string as input and returns a Transform stream. This stream is used to add a prefix to each line of data that passes through it. This function is used to create streams that add prefixes to the stdout and stderr of the v8-deopt-viewer process.
+
+The code then defines an async function `runV8DeoptViewer` which takes a TachURL object and a DeoptOptions object as input. This function creates a directory for storing the v8-deopt-viewer output, constructs the arguments for running the v8-deopt-viewer tool, spawns a child process to run the tool with the arguments, and pipes the stdout and stderr of the child process through the prefix transform streams. Finally, the function waits for the child process to exit using the `onExit` function.
+
+The code also defines an async function `runDeopts` which takes a benchmark glob pattern and a DeoptOptions object as input. This function first checks if a benchmark glob pattern is provided and sets a default pattern if not. It then retrieves the path to the first matched benchmark file using the `globSrc` function. The function generates a Tachometer config object using the `generateConfig` function, passing the benchmark path and the default benchmark and deopts options. The function then runs the Tachometer process in manual mode with the generated config, parses the URLs from the Tachometer output using the `getTachometerURLs` function, and runs the v8-deopt-viewer tool for each URL using the `runV8DeoptViewer` function. Finally, the function handles cleanup by killing the Tachometer process and waiting for it to exit.
+
+Overall, this code provides a way to run benchmarks for the Preact framework using Tachometer and analyze the performance using the v8-deopt-viewer tool. It automates the process of running benchmarks, capturing URLs from the Tachometer output, and running the v8-deopt-viewer tool for each URL. This code is likely used as part of a larger project for performance testing and optimization of the Preact framework.
+## Questions: 
+ 1. What is the purpose of the `runPackage` function?
+- The `runPackage` function is used to spawn a child process and execute a package's binary file with the provided arguments.
+
+2. What is the purpose of the `getTachometerURLs` function?
+- The `getTachometerURLs` function is responsible for parsing the output of a Tachometer process and extracting the URLs of the benchmarks being run.
+
+3. What is the purpose of the `runV8DeoptViewer` function?
+- The `runV8DeoptViewer` function runs the `v8-deopt-viewer` package against a Tachometer URL, generating output files and displaying them in the console.

@@ -1,0 +1,6 @@
+/**
+  * @function preact
+  * @description The main function of the preact library.
+  * @call module
+  * @call self
+  */

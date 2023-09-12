@@ -1,0 +1,46 @@
+[View code on GitHub](https://github.com/preactjs/preact/compat/src/util.js)
+
+The code provided in this file contains several utility functions that can be used in the larger Preact project.
+
+The first function, `assign`, is used to copy properties from one object to another. It takes two parameters: `obj`, which is the object to copy properties to, and `props`, which is the object to copy properties from. The function iterates over the properties of `props` and assigns them to `obj`. It then returns the resulting object, which has the properties from both `obj` and `props`. Here is an example usage of the `assign` function:
+
+```javascript
+const obj = { a: 1 };
+const props = { b: 2 };
+const result = assign(obj, props);
+console.log(result); // { a: 1, b: 2 }
+```
+
+The second function, `shallowDiffers`, is used to check if two objects have a different shape. It takes two parameters, `a` and `b`, which are the objects to compare. The function iterates over the properties of `a` and checks if each property is present in `b`. If a property is found in `a` that is not present in `b`, or if the values of corresponding properties in `a` and `b` are different, the function returns `true`. Otherwise, it returns `false`. This function can be used, for example, to determine if a component needs to be re-rendered based on changes in its props. Here is an example usage of the `shallowDiffers` function:
+
+```javascript
+const a = { x: 1, y: 2 };
+const b = { x: 1, y: 3 };
+const differs = shallowDiffers(a, b);
+console.log(differs); // true
+```
+
+The third function, `removeNode`, is a simple utility function that removes a given node from its parent node. It takes one parameter, `node`, which is the node to remove. The function first gets the parent node of `node` and then removes `node` from its parent. This function can be used, for example, to remove a DOM element from the document. Here is an example usage of the `removeNode` function:
+
+```javascript
+const node = document.getElementById('myElement');
+removeNode(node);
+```
+
+The fourth function, `is`, is used to check if two values are the same value. It takes two parameters, `x` and `y`, which are the values to compare. The function first checks if `x` and `y` are strictly equal (`===`). If they are, it also checks if they are not equal to zero (`x !== 0`) or if their division by zero is equal (`1 / x === 1 / y`). If any of these conditions is true, the function returns `true`. Otherwise, it checks if `x` and `y` are both NaN (not a number) and returns `true` if they are. Otherwise, it returns `false`. This function can be used, for example, to compare values in a deep equality check. Here is an example usage of the `is` function:
+
+```javascript
+const x = 5;
+const y = 5;
+const result = is(x, y);
+console.log(result); // true
+```
+## Questions: 
+ 1. What does the `assign` function do and what are its input and output types?
+- The `assign` function copies properties from the `props` object to the `obj` object and returns the combined object. The input types are `O` and `P`, and the output type is `O & P`.
+
+2. What does the `shallowDiffers` function do and what are its input and output types?
+- The `shallowDiffers` function checks if two objects have a different shape by comparing their properties. The input types are `object` for both `a` and `b`, and the output type is `boolean`.
+
+3. What does the `is` function do and what are its input and output types?
+- The `is` function checks if two values are the same value, including handling special cases like NaN and -0. The input types are `*` for both `x` and `y`, and the output type is `boolean`.

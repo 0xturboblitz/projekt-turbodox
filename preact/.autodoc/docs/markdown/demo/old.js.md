@@ -1,0 +1,28 @@
+[View code on GitHub](https://github.com/preactjs/preact/demo/old.js.bak)
+
+The code provided is a collection of functions and code snippets that demonstrate the usage of the Preact library. Preact is a lightweight alternative to React, a popular JavaScript library for building user interfaces.
+
+The first part of the code defines a function called `createRoot` that creates a new `div` element, appends an `h2` element with the specified `title` as its text content, appends the `h2` element to the `div`, appends the `div` to the `document.body`, and finally returns the `div`. This function is used to create a root element for rendering Preact components.
+
+The next part of the code defines a function called `logCall` that takes an object (`obj`), a method name (`method`), and an optional name (`name`). This function logs a message to the console before and after the specified method is called on the object. It then replaces the original method with a new function that calls the original method and returns its result. This function is used to log method calls on `HTMLElement` and `Node` prototypes.
+
+The code then demonstrates the usage of the `logCall` function by logging method calls on various `HTMLElement` and `Node` prototypes, such as `appendChild`, `removeChild`, `insertBefore`, `replaceChild`, `setAttribute`, `removeAttribute`, and `nodeValue`.
+
+Next, there is a class called `Foo` that extends the `Component` class from Preact. This class has a `componentDidMount` method that logs a message to the console when the component is mounted. It also sets up a timer that updates the component's state every 5 seconds. The `componentWillUnmount` method clears the timer when the component is unmounted. The `render` method returns a `time` element with the current time as its text content. This class is used to demonstrate the lifecycle methods of a Preact component.
+
+The code then demonstrates the rendering of a Preact component using the `render` function. It renders a `div` element with a nested `h4` element, an instance of the `Foo` component, and a `time` element. This is done twice, with different root elements created using the `createRoot` function.
+
+The last part of the code sets up a timer that updates a list of items every 5 seconds. The list is rendered inside a `div` element along with a `h4` element and a `time` element. The items in the list are dynamically added and removed based on the value of a counter. This part of the code demonstrates the dynamic rendering of components in Preact.
+
+Finally, the top-level component called `Main` is rendered to the `document.body` using the `render` function. This is the entry point of the Preact application.
+
+Overall, this code showcases the basic usage of Preact, including creating root elements, logging method calls, rendering components, and managing component lifecycle. It serves as a demonstration of the features and capabilities of the Preact library.
+## Questions: 
+ 1. What is the purpose of the `logCall` function and how is it being used in this code? 
+The `logCall` function is used to override certain methods of the `HTMLElement.prototype` object and log information about the method calls. It is being used to log calls to methods like `appendChild`, `removeChild`, etc.
+
+2. What is the purpose of the `Foo` class and what lifecycle methods does it implement? 
+The `Foo` class is a component that extends the `Component` class. It implements the `componentDidMount` and `componentWillUnmount` lifecycle methods. 
+
+3. What is the purpose of the `items` array and how is it being used in the code? 
+The `items` array is being used to dynamically generate a list of `<li>` elements. It is being updated periodically to add or remove items from the list.

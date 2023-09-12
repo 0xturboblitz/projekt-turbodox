@@ -1,0 +1,28 @@
+[View code on GitHub](https://github.com/preactjs/preact/demo/people/profile.tsx)
+
+The code provided is a part of the Preact project and it defines a component called "Profile". This component is responsible for rendering a user profile with various details such as name, picture, gender, email, and a button to remove the contact.
+
+The component extends the "Component" class from the Preact library, which allows it to have lifecycle methods such as "componentDidMount" and "componentWillReceiveProps". It also uses decorators from the "mobx" and "mobx-react" libraries to make the component observable and to enable reactivity.
+
+The "Profile" component has two observable properties: "id" and "busy". The "id" property represents the ID of the user profile being displayed, and the "busy" property indicates whether the component is currently performing an action (e.g., removing a contact).
+
+In the "componentDidMount" method, the "id" property is set to the value of the "route" property passed to the component. This allows the component to display the correct user profile based on the current route.
+
+The "componentWillReceiveProps" method is called whenever the component receives new props. In this case, it updates the "id" property with the new value of the "route" prop. This ensures that the component can handle changes in the route and display the corresponding user profile.
+
+The "render" method is responsible for rendering the user profile. It first checks if the "user" property (which is a computed property) is null. If it is, the method returns null, indicating that no profile should be displayed. Otherwise, it renders the profile details using JSX syntax.
+
+The "user" property is a computed property that retrieves the user object from the "store" based on the current "id" value. The "store" is imported from another file and is responsible for managing the user data.
+
+The "remove" method is an asynchronous function that is called when the "Remove contact" button is clicked. It sets the "busy" property to true, simulates a delay of 1.5 seconds using a promise, deletes the user from the "store", and finally sets the "busy" property back to false.
+
+Overall, this code defines a reusable "Profile" component that can be used in the larger Preact project to display user profiles and allow users to remove contacts. The component leverages the MobX library for state management and reactivity, and interacts with a separate "store" to retrieve and delete user data.
+## Questions: 
+ 1. What is the purpose of the `@observer` decorator on the `Profile` class?
+- The `@observer` decorator is used to make the `Profile` component reactive to changes in the MobX store, causing it to re-render when relevant data changes.
+
+2. What is the purpose of the `@observable` decorator on the `id` and `busy` properties?
+- The `@observable` decorator is used to mark the `id` and `busy` properties as observable, allowing MobX to track their changes and trigger reactivity when they are updated.
+
+3. What is the purpose of the `@computed` decorator on the `user` getter?
+- The `@computed` decorator is used to create a computed property called `user`, which is derived from the MobX store's `users` array and the `id` property. It will automatically update whenever the dependencies change.

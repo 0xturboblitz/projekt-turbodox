@@ -1,0 +1,24 @@
+[View code on GitHub](https://github.com/preactjs/preact/demo/contenteditable.jsx)
+
+The code provided is a functional component called `Contenteditable` that is exported as the default export. This component is responsible for rendering an editable div element with some additional functionality.
+
+The component imports the `useState` hook from the `preact/hooks` module. This hook allows the component to manage state within a functional component. The `useState` hook is used to define a state variable called `value` and a function called `setValue` to update the state. The initial value of the `value` state variable is set to the string "Hey there<br />I'm editable!".
+
+The `Contenteditable` component returns a JSX expression that renders a div element with two child elements. The first child element is a div containing a button. When this button is clicked, it triggers an onClick event handler that calls the `setValue` function with an empty string, effectively clearing the content of the editable div.
+
+The second child element is the editable div itself. It has several properties and event handlers attached to it. The `style` property is an object that defines the CSS styles for the div, including a gray border, padding, margin, and a white background. The `contentEditable` property is set to true, which allows the div to be edited by the user.
+
+The `onInput` event handler is triggered whenever the content of the div is changed. It updates the `value` state variable with the new content of the div by accessing the `innerHTML` property of the event target. This ensures that the `value` state variable always reflects the current content of the div.
+
+The `dangerouslySetInnerHTML` property is used to set the initial HTML content of the div. It takes an object with a single property `__html` that contains the value of the `value` state variable. This allows the initial content of the div to be set based on the value of the `value` state variable.
+
+In summary, the `Contenteditable` component provides a simple way to render an editable div element with the ability to clear its content. It uses the `useState` hook to manage the state of the div's content and provides event handlers to update the state when the content is changed. This component can be used in a larger project whenever an editable div element is needed.
+## Questions: 
+ 1. What does the `useState` function from `preact/hooks` do?
+- The `useState` function is used to create and manage state in a functional component. It returns an array with two elements: the current state value and a function to update the state.
+
+2. What is the purpose of the `contentEditable` attribute in the `<div>` element?
+- The `contentEditable` attribute allows the content within the `<div>` to be edited by the user.
+
+3. What does the `dangerouslySetInnerHTML` property do?
+- The `dangerouslySetInnerHTML` property is used to set the HTML content of an element. It is considered "dangerous" because it can expose the application to cross-site scripting (XSS) attacks if not used carefully.

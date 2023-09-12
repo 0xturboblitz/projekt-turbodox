@@ -1,0 +1,26 @@
+[View code on GitHub](https://github.com/preactjs/preact/benches/src/07_create10k.html)
+
+The code provided is an HTML file that is part of the Preact project. The purpose of this code is to create and render 10,000 rows on a web page using the Preact framework.
+
+The code begins by importing several utility functions and modules from other files. These include `measureName`, `measureMemory`, `testElementText`, `afterFrame`, and the `render` function from the `keyed-children` module in the Preact source code.
+
+Next, the code imports the `framework` module and assigns it to the `framework` variable. This module likely contains the necessary functions and components for rendering the rows.
+
+The code then defines an async function called `main()`. Inside this function, a CSS selector is assigned to the `elementSelector` variable. This selector targets the last child `td` element of the last child `tr` element. This element is expected to contain the text "10000" once the rows are rendered.
+
+The code then marks the start of a performance measurement using `performance.mark('start')`. It then calls the `runLots()` function, which is likely a function provided by the `framework` module that generates and renders the 10,000 rows.
+
+After the rows are rendered, the code uses the `afterFrame()` function to schedule a callback that will be executed after the next frame is rendered. In this callback, the code checks if the element selected by `elementSelector` contains the expected text "10000" using the `testElementText()` function. It then marks the stop of the performance measurement using `performance.mark('stop')` and measures the performance using `performance.measure()`.
+
+Finally, the code calls the `measureMemory()` function to measure the memory usage.
+
+Overall, this code is responsible for rendering 10,000 rows using the Preact framework and measuring the performance and memory usage of this operation. It demonstrates how to use the Preact framework to efficiently render a large number of elements on a web page.
+## Questions: 
+ 1. What is the purpose of the `runLots` function and where is it defined?
+- The `runLots` function is used to render 10,000 rows. It is defined in the imported `framework` module.
+
+2. What is the purpose of the `afterFrame` function and where is it defined?
+- The `afterFrame` function is used to execute a callback function after the next frame is rendered. Its definition is not provided in this code snippet.
+
+3. What is the purpose of the `measureMemory` function and where is it defined?
+- The `measureMemory` function is used to measure the memory usage. Its definition is not provided in this code snippet.

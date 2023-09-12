@@ -1,0 +1,26 @@
+[View code on GitHub](https://github.com/preactjs/preact/demo/mobx.jsx)
+
+The code provided is a part of the Preact project and it demonstrates the usage of MobX, a state management library, in a Preact application. 
+
+The code begins by importing necessary dependencies from the 'react' and 'mobx' libraries. It also imports the 'mobx-react' library for integrating MobX with React components. Additionally, it imports the 'batchingForReactDom' module from 'mobx-react-lite' to enable batching of React updates.
+
+Next, a class called `Todo` is defined. This class represents a todo item and has properties such as `id`, `title`, and `finished`. The `title` and `finished` properties are decorated as `observable`, which means that any changes to these properties will be automatically tracked by MobX.
+
+The code then defines a functional component called `Forward` using the `observer` function from `mobx-react`. This component takes a `todo` prop and renders a paragraph element displaying the `title` and `finished` properties of the `todo` object. The component is wrapped in the `forwardRef` function, allowing it to forward a ref to the underlying DOM element.
+
+An instance of the `Todo` class is created and assigned to the `todo` variable.
+
+Next, two more functional components called `TodoView` and `HookView` are defined. Both of these components are also wrapped in the `observer` function. They take a `todo` prop and render a paragraph element displaying the `title` and `finished` properties of the `todo` object. The `HookView` component uses the `useObserver` hook from `mobx-react` to automatically track changes to the `todo` object.
+
+Finally, the `MobXDemo` function component is exported. This component renders a text input, a paragraph element displaying the success status based on the ref, and the `TodoView`, `Forward`, and `HookView` components. The `onInput` event handler updates the `title` property of the `todo` object and triggers a re-render of the component.
+
+In summary, this code demonstrates how to use MobX to manage state in a Preact application. It showcases the usage of observable properties, observer components, and the useObserver hook to automatically track and update the UI in response to changes in the state.
+## Questions: 
+ 1. What is the purpose of the `MobXDemo` function?
+- The `MobXDemo` function is a React component that renders a form and displays the `TodoView`, `Forward`, and `HookView` components.
+
+2. What is the purpose of the `Todo` class?
+- The `Todo` class represents a todo item and has properties such as `id`, `title`, and `finished`.
+
+3. What is the purpose of the `useObserver` hook from `mobx-react`?
+- The `useObserver` hook is used to create a reactive component that automatically re-renders when the observed observable values change.

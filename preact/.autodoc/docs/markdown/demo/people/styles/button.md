@@ -1,0 +1,34 @@
+[View code on GitHub](https://github.com/preactjs/preact/demo/people/styles/button.scss)
+
+The code provided is a CSS stylesheet that defines the styling for buttons in a web application. It includes various CSS selectors and properties to define the appearance and behavior of the buttons.
+
+The code starts by targeting the `button` element within an element with the ID `people-app`. It sets several CSS properties to define the button's appearance, such as position, size, padding, border, background color, border radius, font properties, and text styling. It also includes transitions for smooth animations when the button is interacted with.
+
+The code then defines pseudo-elements `::before` and `::after` to create visual effects when the button is hovered over or clicked. The `::before` pseudo-element creates a background overlay that appears when the button is hovered over, while the `::after` pseudo-element creates a radial gradient background that expands when the button is clicked.
+
+The code also includes additional CSS selectors to define different styles for specific button classes. For example, the `.primary` class sets a different background color and box shadow for primary buttons, while the `.secondary` class does the same for secondary buttons. The `:disabled` selector is used to define the appearance of disabled buttons.
+
+Lastly, the code includes an animation called `stripes` using the `@keyframes` rule. This animation creates a moving stripes effect on buttons with the `.busy` class.
+
+Overall, this code provides a consistent and visually appealing style for buttons in the web application. It can be used by applying the appropriate classes to buttons in the HTML markup, allowing developers to easily create buttons with consistent styling throughout the project.
+
+Example usage:
+
+```html
+<div id="people-app">
+  <button class="primary">Submit</button>
+  <button class="secondary">Cancel</button>
+  <button class="primary disabled busy">Loading</button>
+</div>
+```
+
+In the above example, three buttons are created within an element with the ID `people-app`. The first button has the `primary` class, the second button has the `secondary` class, and the third button has the `primary`, `disabled`, and `busy` classes. Each button will have the corresponding styling defined in the CSS code.
+## Questions: 
+ 1. What is the purpose of the `button::before` and `button::after` pseudo-elements?
+- The `button::before` pseudo-element is used to create a background ripple effect when the button is hovered. The `button::after` pseudo-element is used to create a radial gradient animation when the button is clicked.
+
+2. What is the purpose of the `button.busy` class?
+- The `button.busy` class is used to style a button that is in a busy/loading state. It applies a background gradient animation and changes the color of the button text.
+
+3. What is the purpose of the `@keyframes stripes` animation?
+- The `@keyframes stripes` animation is used to create a horizontal stripes animation effect on the button when it is in the busy/loading state. It animates the background position and size of the stripes.

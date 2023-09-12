@@ -1,0 +1,44 @@
+[View code on GitHub](https://github.com/preactjs/preact/demo/list.jsx)
+
+The code provided is a part of the Preact project and it defines a component called `List`. This component is responsible for rendering a list of items with various options for customization.
+
+The `List` component takes in several props: `items`, `renders`, `useKeys`, `useCounts`, and `update`. 
+
+The `items` prop is an array of objects, where each object represents an item in the list. Each item has a `name` property.
+
+The `renders` prop is a number that keeps track of the number of times the component has been rendered.
+
+The `useKeys` prop is a boolean that determines whether or not to use keys when rendering the list items. If `useKeys` is true, each list item will have a unique key based on its `name` property.
+
+The `useCounts` prop is a boolean that determines whether or not to display the number of renders for each list item.
+
+The `update` prop is a function that allows for updating the state of the `List` component.
+
+Inside the `List` component, there are three functions: `toggleKeys`, `toggleCounts`, and `swap`. 
+
+The `toggleKeys` function toggles the value of `useKeys` by calling the `update` function with the updated state.
+
+The `toggleCounts` function toggles the value of `useCounts` by calling the `update` function with the updated state.
+
+The `swap` function swaps the positions of the second and eighth items in the `items` array by creating a new array `u` and updating the state with the new array.
+
+The `List` component returns a JSX template using the `html` function from the `htm` library. The template consists of a `div` element containing several buttons, checkboxes, and a `ul` element.
+
+The `button` elements have event listeners that call the `update` and `swap` functions when clicked.
+
+The `checkbox` elements have event listeners that call the `toggleKeys` and `toggleCounts` functions when clicked.
+
+The `ul` element contains a `map` function that iterates over the `items` array and renders a `li` element for each item. The `class` attribute of each `li` element is set based on the index of the item in the array. If `useKeys` is true, the `key` attribute of each `li` element is set to the `name` property of the item.
+
+Finally, the `root` variable is created using the `createRoot` function, which takes in the `document.body` as the parent element. The `data` object is initialized with default values for `items`, `renders`, `useKeys`, and `useCounts`. The `update` function is called to render the `List` component with the initial state.
+
+In summary, this code defines a `List` component that renders a list of items with customizable options. It allows for toggling the use of keys and counts, swapping items, and re-rendering the list. This component can be used in the larger Preact project to display and manipulate lists of items.
+## Questions: 
+ 1. What is the purpose of the `createRoot` function?
+- The `createRoot` function is used to create a root element for rendering the Preact component.
+
+2. What does the `update` function do?
+- The `update` function is responsible for updating the `data` object with the provided partial data and then re-rendering the `List` component with the updated data.
+
+3. What is the purpose of the `useKeys` and `useCounts` variables?
+- The `useKeys` variable is used to determine whether to use keys for the list items in the `List` component, and the `useCounts` variable is used to determine whether to display the number of renders for each list item.
