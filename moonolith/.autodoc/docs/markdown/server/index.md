@@ -1,40 +1,13 @@
-[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/server/index.js)
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/server/index.html)
 
-The code provided is a basic Node.js server using the Express framework. It sets up a server that listens on port 3001 and handles two different routes: the homepage ("/") and "/liste".
+This HTML file serves as the basic structure for a web page in the Moonolith project. The `<!DOCTYPE html>` declaration at the top of the file is used to inform the web browser about the version of HTML the page is written in. The `<html lang="en">` tag specifies that the language of this document is English.
 
-When a GET request is made to the homepage ("/"), the server responds with the string "hello world". This is a simple example of a route handler in Express:
+The `<head>` section contains meta-information about the document. The `<meta charset="UTF-8">` tag specifies the character encoding for the web page, which is UTF-8. The `<meta http-equiv="X-UA-Compatible" content="IE=11" />` tag is used to define the document compatibility mode in IE 11. The `<meta http-equiv="Cache-Control" content="no-cache" />` tag is used to prevent the browser from caching the document.
 
-```javascript
-app.get('/', function(req, res) {
-    res.send('hello world');
-});
-```
+The `<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self';" />` tag is used to control resources the user agent is allowed to load, providing a measure of protection against cross-site scripting attacks. It restricts all the sources to be loaded from the same origin ('self').
 
-When a GET request is made to the "/liste" route, the server reads the contents of a file called "liste.txt" and sends the contents as the response. This is done using the `fs.readFile` function, which reads the file asynchronously. The contents of the file are then sent as the response to the client. If an error occurs while reading the file, the error is logged to the console.
+The `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag is used for responsive web design. It sets the width of the page to follow the screen-width of the device (which will vary depending on the device), and the initial zoom level when the page is first loaded by the browser.
 
-```javascript
-app.get('/liste', function(req, res) {
-    fs.readFile('liste.txt', { encoding: "utf8" }, function(err, data) {
-        if (err) {
-            console.log(err)
-        }
-        console.log(data);
-        res.send(data);
-    })
-})
-```
+The `<title>` tag defines the title of the document, which is 'sender de liste v1.0'. This title is displayed in the browser's title bar or tab.
 
-This code can be used as a starting point for building a server-side application that serves static files and handles different routes. It demonstrates how to set up a basic server using Express and how to handle different HTTP requests.
-
-In the larger project, this code could be expanded to include more routes and functionality. For example, additional routes could be added to handle POST requests or to interact with a database. Middleware could also be added to perform tasks such as authentication or logging. The server could be used to serve static files, handle API requests, or render dynamic web pages.
-
-Overall, this code provides a foundation for building a server-side application using Node.js and Express. It demonstrates how to handle different routes and perform tasks such as reading files.
-## Questions: 
- 1. What is the purpose of the `express` module in this code?
-- The `express` module is used to create an instance of an Express application, which allows the code to handle HTTP requests and responses.
-
-2. What is the purpose of the `fs` module in this code?
-- The `fs` module is used to read the contents of a file. In this code, it is used to read the contents of the file `liste.txt`.
-
-3. Why is the commented out code `// app.use(express.static('./public'));` not being used?
-- The commented out code is not being used because it is not necessary for the functionality of this specific code. It is likely that it was included for future use or as a placeholder.
+The `<body>` tag contains the content of the document. In this case, it is currently empty. This is where the main content of the web page would be added.

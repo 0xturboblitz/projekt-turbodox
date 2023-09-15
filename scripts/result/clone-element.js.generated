@@ -4,6 +4,6 @@
  * @param {object} props Attributes/props to add when cloning
  * @param {Array<import('./internal').ComponentChildren>} rest Any additional arguments will be used as replacement children.
  * @returns {import('./internal').VNode}
- *
- * @call createVNode
+ * @call {createVNode} This function calls the createVNode function from './create-element' module.
  */
+export function cloneElement(vnode, props, children) { ... }

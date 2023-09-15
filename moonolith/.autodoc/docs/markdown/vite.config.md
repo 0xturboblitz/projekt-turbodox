@@ -1,24 +1,11 @@
-[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/vite.config.js)
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/vite.config.js)
 
-The code provided is a configuration file for the Vite build tool, which is used in the Moonolith project. Vite is a fast build tool that is specifically designed for modern web development. This configuration file is responsible for defining the configuration options for Vite.
+This code is a configuration file for Vite, a modern front-end build tool. It is written in JavaScript and uses ES6 import syntax to import necessary modules. 
 
-The code begins by importing two functions, `fileURLToPath` and `URL`, from the 'url' module. These functions are used to convert a file URL to a file path. This is necessary because the `defineConfig` function later on requires a file path as an argument.
+The purpose of this code is to define specific configurations for the Vite server and module resolution. The `defineConfig` function from Vite is used to export a configuration object. This object has two properties: `server` and `resolve`.
 
-Next, the code imports the `defineConfig` function from the 'vite' module. This function is used to define the configuration options for Vite.
+The `server` property is an object that contains configurations for the Vite development server. In this case, the `hmr` (Hot Module Replacement) property is set to `false`. This means that when a file is changed, the whole page will reload instead of just the changed module.
 
-The `export default` statement exports a configuration object that is passed as an argument to the `defineConfig` function. This configuration object specifies various options for Vite.
+The `resolve` property is an object that contains configurations for module resolution. The `alias` property is used to define a shortcut for importing modules. In this case, the '@' symbol is mapped to the path of the 'src' directory. This allows developers to import modules from the 'src' directory using '@' instead of the relative path. For example, instead of writing `import MyComponent from '../../src/MyComponent'`, they can write `import MyComponent from '@/MyComponent'`.
 
-The `server` option is used to configure the development server. In this case, the `hmr` (Hot Module Replacement) option is set to `false`, which disables the hot module replacement feature. Hot module replacement allows for the replacement of modules without a full page reload during development. By setting it to `false`, the code is disabling this feature.
-
-The `resolve` option is used to configure module resolution. In this case, the `alias` option is used to define an alias for the `@` symbol. The alias is set to the file path of the 'src' directory relative to the current file. This allows for easier importing of modules from the 'src' directory by using the `@` symbol as a shorthand.
-
-Overall, this configuration file sets up the Vite build tool for the Moonolith project. It disables the hot module replacement feature and defines an alias for the 'src' directory. This configuration file is used in the larger project to ensure that Vite is properly configured and to provide a convenient way to import modules from the 'src' directory.
-## Questions: 
- 1. What is the purpose of the `defineConfig` function?
-- The `defineConfig` function is used to define the configuration options for the Vite project.
-
-2. What does the `hmr: false` option in the `server` configuration do?
-- The `hmr: false` option disables hot module replacement (HMR), which means that changes to the code will not be automatically reflected in the browser without a manual refresh.
-
-3. What is the purpose of the `alias` configuration in the `resolve` object?
-- The `alias` configuration allows for the creation of custom import shortcuts, in this case, the `@` alias is used to refer to the `src` directory.
+The `fileURLToPath` and `URL` modules from the 'url' package are used to convert the URL of the 'src' directory to a file path. The `import.meta.url` property is a built-in feature in JavaScript modules that provides the URL of the current module.

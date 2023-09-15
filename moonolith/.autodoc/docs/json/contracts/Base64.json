@@ -1,0 +1,8 @@
+{
+  "fileName": "Base64.sol",
+  "filePath": "contracts/Base64.sol",
+  "url": "https://github.com/LaGuerrePiece/moonolith/blob/master/contracts/Base64.sol",
+  "summary": "The `Base64` library in the Moonolith project provides a function for encoding bytes in base64. Base64 encoding is a common method for converting binary data into a string format that can be easily transmitted over systems that are designed to handle text. This encoding helps to ensure that the data remains intact without modification during transport.\n\nThe library contains a single function `encode(bytes memory data)`. This function takes a byte array as input and returns a base64 encoded string. If the input data is empty, it returns an empty string.\n\nThe function first calculates the length of the encoded string, then creates a new string with the calculated length plus an extra buffer. It uses inline assembly for efficient encoding. It reads the input data three bytes at a time, and for each three bytes, it writes four base64 characters to the result string. \n\nThe assembly code also handles padding at the end of the encoded string. If the length of the input data is not a multiple of 3, it adds one or two '=' characters to the end of the encoded string to make the length a multiple of 4, as required by the base64 specification.\n\nHere is an example of how to use the `encode` function:\n\n```solidity\nbytes memory data = \"Hello, World!\";\nstring memory encoded = Base64.encode(data);\n```\n\nIn this example, `encoded` will be the base64 encoded string of \"Hello, World!\".",
+  "questions": "",
+  "checksum": "c40cd24672ac6d2ff7e7d92c9f1db39d"
+}

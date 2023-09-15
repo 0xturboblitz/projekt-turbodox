@@ -1,29 +1,11 @@
-[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/src/monolith/undoStack.js)
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/src/monolith/undoStack.js)
 
-The code provided is a module that handles the management of events and changes in a larger project called Moonolith. The purpose of this code is to keep track of changes made to a monolith, which is represented by the `monolith` and `monolithIndexes` arrays. 
+This code is part of a system that manages changes to a monolith, a large structure that is represented as a 2D array of pixels. The monolith can be modified by changing the color and z-index of its pixels. The code provides a way to track these changes and undo or redo them if necessary.
 
-The code starts by importing the `Const` module from the '../constants' file and the `monolith` and `monolithIndexes` arrays from the './monolith' file.
+The changes are stored in two stacks: `eventStack` and `inverseEventStack`. Each item in these stacks is an event, which is a list of changes. A change is represented as an object with properties `x`, `y`, `oldColor`, and `oldZIndex`, which represent the pixel's coordinates, its previous color, and its previous z-index, respectively.
 
-The code then initializes several variables:
-- `eventStack` and `inverseEventStack` are arrays that will store the events and their inverse events respectively.
-- `currentEvent` and `inverseCurrentEvent` are arrays that will store the changes made in the current event and its inverse event respectively.
-- `maxSize` is a constant that determines the maximum size of the event stacks.
+The `addToCurrentEvent` function is used to add a change to the current event. When an event is completed, the `closeCurrentEvent` function is called to push the current event to the `eventStack` and clear the current event and `inverseEventStack`.
 
-The code then defines several functions:
-- `closeCurrentEvent` is a function that is called when an event is completed. It pushes the current event to the `eventStack`, removes the oldest event from the stack if it exceeds the `maxSize`, and resets the `currentEvent` and `inverseEventStack` arrays.
-- `addToCurrentEvent` is a function that is called when a change is made to the monolith. It adds the change to the `currentEvent` array.
-- `undo` is a function that is called when the user wants to undo the last event. It pops the last event from the `eventStack`, applies the inverse changes to the monolith, and pushes the inverse changes to the `inverseEventStack`. It also removes the oldest inverse event from the stack if it exceeds the `maxSize`.
-- `redo` is a function that is called when the user wants to redo the last undone event. It pops the last inverse event from the `inverseEventStack`, applies the changes to the monolith, and pushes the changes to the `eventStack`. It also removes the oldest event from the stack if it exceeds the `maxSize`.
+The `undo` function pops the last event from the `eventStack`, applies the changes in reverse, and pushes the reversed changes to the `inverseEventStack`. The `redo` function does the opposite: it pops the last event from the `inverseEventStack`, applies the changes, and pushes them to the `eventStack`.
 
-Finally, the code exports the `closeCurrentEvent`, `addToCurrentEvent`, `undo`, and `redo` functions for use in other parts of the Moonolith project.
-
-In the larger Moonolith project, this code can be used to keep track of changes made to the monolith and allow the user to undo and redo those changes. For example, if the user paints a pixel on the monolith and then decides to undo that change, the `undo` function can be called to revert the pixel to its previous state. Similarly, if the user undoes a change and then decides to redo it, the `redo` function can be called to reapply the change. This functionality can be useful in applications where the user needs to have fine-grained control over the changes made to a visual representation, such as an image editor or a drawing application.
-## Questions: 
- 1. What is the purpose of the `eventStack` and `inverseEventStack` arrays?
-- The `eventStack` array stores arrays of changes made to the `monolith` object, while the `inverseEventStack` array stores arrays of changes made during undo operations.
-
-2. What is the significance of the `maxSize` constant?
-- The `maxSize` constant determines the maximum number of events that can be stored in the `eventStack` and `inverseEventStack` arrays. If the arrays exceed this size, the oldest events will be removed.
-
-3. How are changes to the `monolith` object and `monolithIndexes` array being undone and redone?
-- Changes are undone by popping an event array from the `eventStack`, reverting the changes made in that event, and pushing the inverse changes to the `inverseEventStack`. Redoing changes is done by popping an event array from the `inverseEventStack`, reverting the inverse changes made in that event, and pushing the changes back to the `eventStack`.
+For example, if a pixel at (5, 5) was changed from red to blue, the change would be added to the current event with `addToCurrentEvent(5, 5, [255, 0, 0], 1)`. When the changes are done, `closeCurrentEvent` would be called. If the user wants to undo the change, they would call `undo()`, which would change the pixel back to red and add the change to the `inverseEventStack`. If they then call `redo()`, the pixel would be changed back to blue and the change would be added back to the `eventStack`.

@@ -1,0 +1,27 @@
+{
+  "folderName": "server",
+  "folderPath": ".autodoc/docs/json/server",
+  "url": "https://github.com/LaGuerrePiece/moonolith/tree/master/.autodoc/docs/json/server",
+  "files": [
+    {
+      "fileName": "index.html",
+      "filePath": "server/index.html",
+      "url": "https://github.com/LaGuerrePiece/moonolith/blob/master/server/index.html",
+      "summary": "This HTML file serves as the basic structure for a web page in the Moonolith project. The `<!DOCTYPE html>` declaration at the top of the file is used to inform the web browser about the version of HTML the page is written in. The `<html lang=\"en\">` tag specifies that the language of this document is English.\n\nThe `<head>` section contains meta-information about the document. The `<meta charset=\"UTF-8\">` tag specifies the character encoding for the web page, which is UTF-8. The `<meta http-equiv=\"X-UA-Compatible\" content=\"IE=11\" />` tag is used to define the document compatibility mode in IE 11. The `<meta http-equiv=\"Cache-Control\" content=\"no-cache\" />` tag is used to prevent the browser from caching the document.\n\nThe `<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; style-src 'self';\" />` tag is used to control resources the user agent is allowed to load, providing a measure of protection against cross-site scripting attacks. It restricts all the sources to be loaded from the same origin ('self').\n\nThe `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">` tag is used for responsive web design. It sets the width of the page to follow the screen-width of the device (which will vary depending on the device), and the initial zoom level when the page is first loaded by the browser.\n\nThe `<title>` tag defines the title of the document, which is 'sender de liste v1.0'. This title is displayed in the browser's title bar or tab.\n\nThe `<body>` tag contains the content of the document. In this case, it is currently empty. This is where the main content of the web page would be added.",
+      "questions": "",
+      "checksum": "a90dfea385d241bd318a09fcb99256c7"
+    },
+    {
+      "fileName": "liste.txt",
+      "filePath": "server/liste.txt",
+      "url": "https://github.com/LaGuerrePiece/moonolith/blob/master/server/liste.txt",
+      "summary": "The provided code does not seem to be a valid code in any known programming language. It appears to be a list of words or phrases in different languages: \"Bonjour\" is French for \"Hello\", \"Kikooe\" could be a misspelling of \"Kikou\" which is a French slang greeting, and \"Arigato\" is Japanese for \"Thank you\". \"TEST\" is a common placeholder or test string in many programming contexts.\n\nWithout additional context or valid code, it's impossible to provide a detailed technical explanation or high-level purpose of this code. It could potentially be used for a multi-language greeting system or a language translation feature in the larger project, but this is purely speculative based on the provided information.\n\nPlease provide valid code for a more accurate and detailed explanation.",
+      "questions": "",
+      "checksum": "6ba1847cf00e0906b9677b4141e9a570"
+    }
+  ],
+  "folders": [],
+  "summary": "The `.autodoc/docs/json/server` folder in the Moonolith project contains two files: `index.html` and `liste.txt`.\n\n`index.html` is a basic HTML file that sets up the structure for a web page. It includes several meta tags for specifying the document's language, character encoding, compatibility mode, cache control, content security policy, and viewport settings. The title of the document is set to 'sender de liste v1.0'. The body of the document is currently empty, indicating that the main content of the web page is yet to be added. This file could serve as the main interface for the server-side of the Moonolith project, possibly providing a user interface for interacting with the server or displaying server-related information.\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=11\" />\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\" />\n    <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; style-src 'self';\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>sender de liste v1.0</title>\n</head>\n<body>\n</body>\n</html>\n```\n\n`liste.txt` contains a list of words or phrases in different languages. Although it's not valid code, it could potentially be used for a multi-language greeting system or a language translation feature in the larger project. For example, these phrases could be displayed to the user based on their language settings or used for testing the project's internationalization features.\n\n```\nBonjour\nKikooe\nArigato\nTEST\n```\n\nIn conclusion, the `index.html` file could be the starting point for the server-side interface of the Moonolith project, while `liste.txt` could be used for language-related features or testing.",
+  "questions": "",
+  "checksum": "a6afd4999c75ed734bb885348981aa85"
+}

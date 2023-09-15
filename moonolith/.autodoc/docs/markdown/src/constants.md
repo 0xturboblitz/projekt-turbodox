@@ -1,28 +1,28 @@
-[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/src/constants.js)
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/src/constants.js)
 
-The code provided is a class called `Const` that exports as the default export. It contains various static properties and methods that define constants used in the larger Moonolith project.
+The `Const` class in this file serves as a central repository for various constants and configuration values used throughout the Moonolith project. These constants include dimensions, colors, and other settings that are used to control the appearance and behavior of the application.
 
-The `Const` class has several static getter methods that return constant values. For example, the `COLUMNS` getter returns the value 370, the `MARGIN_TOP` getter returns the value 650, and so on. These constants are used to define the dimensions and layout of the Moonolith project.
+The class includes static getter methods for various properties such as `COLUMNS`, `LINES`, `MARGIN_TOP`, `MARGIN_BOTTOM`, `MARGIN_LEFT`, `MARGIN_RIGHT`, and others. These properties define the layout and dimensions of the application's interface. For example, `COLUMNS` and `LINES` define the size of the application's grid, while the `MARGIN_*` properties define the size of the margins around the grid.
 
-One important constant is `monolithHeight`, which is initially set to 0. The `LINES` getter method uses this constant, along with other margin constants, to calculate the total number of lines in the Moonolith project. The `MONOLITH_LINES` getter method simply returns the value of `monolithHeight`.
+The `setMonolithHeight` method allows the height of the monolith to be set dynamically. This could be used, for example, to adjust the size of the monolith based on user input or other factors.
 
-The `setMonolithHeight` method is a static setter method that allows the `monolithHeight` constant to be updated with a new value. This method can be used to dynamically adjust the height of the Moonolith project.
+The class also includes a series of color definitions in the form of RGB values. These colors are used throughout the application to ensure a consistent look and feel. The `PALETTE` and `GUI_PALETTE` properties return arrays of these colors, which could be used, for example, to populate a color picker in the application's interface.
 
-The class also defines several constants for colors used in the project. These constants are defined as arrays of RGB values. For example, `RGB1` represents the color black (#000000) and `RGB16` represents a shade of blue (#2f3c99). These color constants are used throughout the project to define the color palette.
+Finally, the `PARALLAX_LAYERS` and `PALETTE_INFO` properties provide configuration values for more complex features of the application. `PARALLAX_LAYERS` defines the behavior of different layers in a parallax scrolling effect, while `PALETTE_INFO` provides configuration values for different versions of the application's color palette.
 
-The `PALETTE` constant is an array that contains all the color constants defined in the class. The `GUI_PALETTE` constant is a modified version of the `PALETTE` constant that includes an additional default color.
+Here's an example of how these constants might be used in the application:
 
-The `PARALLAX_LAYERS` constant is an object that defines the parallax layers used in the Moonolith project. Each layer is represented by a key-value pair, where the key is the layer index and the value is the parallax effect strength.
+```javascript
+import Const from './Const';
 
-The `PALETTE_INFO` constant is an object that defines different configurations for the color palette display. Each configuration is represented by a key-value pair, where the key is a string identifier and the value is an object containing various properties related to the display of the color palette.
+// Set the height of the monolith
+Const.setMonolithHeight(500);
 
-Overall, the `Const` class provides a centralized location for defining and accessing constants used in the Moonolith project. It allows for easy customization and adjustment of various aspects of the project, such as dimensions, colors, and parallax effects.
-## Questions: 
- 1. What is the purpose of the `monolithHeight` variable and how is it used in the code?
-- The `monolithHeight` variable is used to determine the number of lines in the monolith. It is used in the calculation of the `LINES` and `MONOLITH_LINES` properties.
+// Get the total number of lines in the grid
+let totalLines = Const.LINES;
 
-2. What is the purpose of the `MARGIN_TOP`, `MARGIN_BOTTOM`, `MARGIN_LEFT`, and `MARGIN_RIGHT` properties?
-- These properties define the margins of the monolith. They are used in the calculation of the `LINES` and `MONOLITH_COLUMNS` properties.
+// Get the color for the sky
+let skyColor = Const.SKY_COLOR;
+```
 
-3. What is the purpose of the `PALETTE_INFO` object and how is it used in the code?
-- The `PALETTE_INFO` object contains information about different palettes. It is used to define the offset, spacing, and other properties of each palette.
+This structure centralizes the configuration of the application, making it easier to manage and modify as the project evolves.

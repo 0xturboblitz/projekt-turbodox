@@ -1,0 +1,11 @@
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/contracts/IERC20.sol)
+
+This Solidity code defines an interface for a token that complies with the ERC20 standard, a widely accepted standard for fungible tokens on the Ethereum blockchain. This interface, `IERC20`, outlines the necessary methods and events that any ERC20 token should implement.
+
+The `totalSupply` method returns the total amount of tokens in existence. The `balanceOf` method returns the amount of tokens owned by a specific account. The `transfer` method moves a specified amount of tokens from the caller's account to a recipient's account, emitting a `Transfer` event upon success.
+
+The `allowance` method returns the remaining number of tokens that a spender is allowed to spend on behalf of an owner. The `approve` method sets a specified amount as the allowance of a spender over the caller's tokens, emitting an `Approval` event upon success. It's important to note that changing an allowance with this method can potentially allow someone to use both the old and new allowance due to transaction ordering.
+
+The `transferFrom` method moves a specified amount of tokens from a sender to a recipient using the allowance mechanism, deducting the transferred amount from the caller's allowance and emitting a `Transfer` event upon success.
+
+The `Transfer` event is emitted when tokens are moved from one account to another, and the `Approval` event is emitted when the allowance of a spender for an owner is set. Both events can be used to track token movements and changes in allowances.
