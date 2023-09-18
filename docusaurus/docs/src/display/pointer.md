@@ -1,0 +1,9 @@
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/src/display/pointer.js)
+
+The code in this file is primarily concerned with the manipulation of a data structure referred to as `monolithData`. This data structure appears to represent a monolith, a large structure within the Moonolith project. The main function, `addPointer`, modifies the `monolithData` based on the position of a pointer and the selected tool.
+
+The `addPointer` function first checks if the device type is 'mobile'. If it is, the function immediately returns the unmodified `monolithData`. If the device is not mobile, the function proceeds to modify the `monolithData` based on the selected tool ('smol', 'medium', 'large', or 'giga') and the position of the pointer. The modification is done by calling the `whiten` function, which appears to lighten or "whiten" the specified area of the monolith.
+
+The `whiten` function takes in the `monolithData` and coordinates (x, y). It first checks if the coordinates are within the valid range. If they are not, the function returns without making any changes. If the coordinates are valid, the function calculates the position on the monolith and checks if the area is editable. If it is, the function lightens the color of the specified area by increasing the RGB values.
+
+This code could be used in the larger project to allow users to interact with the monolith, possibly as part of a drawing or editing feature. The different tools ('smol', 'medium', 'large', 'giga') likely correspond to different sizes or intensities of the editing effect.

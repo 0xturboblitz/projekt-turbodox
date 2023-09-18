@@ -1,0 +1,33 @@
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/src/monolith/monolithAnims.js)
+
+The code in this file is primarily responsible for animating the monolith and its runes in the Moonolith project. It imports several dependencies, including constants, monolith data, and display parameters. It also exports two variables and two functions that can be used by other parts of the project.
+
+The `animateMonolith` function is the main function in this file. It iterates over the `chunksToAnimateInfo` object and triggers the `animateRune` function for visible chunks. It also iterates over the `animatedPixels` Map and performs different animations based on the `transitionType` of each pixel. The animations include erasing, drawing, importing, and various types of rune animations. Each animation changes the color of the pixel over a certain number of steps, and ends the transition when the counter reaches a certain value.
+
+The `draw` function changes the color of a pixel in the monolith. The `endTransition` function ends the transition of a pixel by drawing it with the final color and removing it from the `animatedPixels` Map. The `avg` function calculates the average color between a given color and the current color of a pixel in the monolith.
+
+The `animateRune` function is triggered only once per rune. It displays the rune and starts a white-on-rune animation after a delay. It also starts a rune contour animation for each pixel in the rune.
+
+Here is an example of how to use the `animateMonolith` function:
+
+```javascript
+import { animateMonolith } from './monolithAnimation';
+
+// Populate chunksToAnimateInfo and animatedPixels
+// ...
+
+// Animate the monolith
+animateMonolith();
+```
+
+And here is an example of how to use the `animateRune` function:
+
+```javascript
+import { animateRune } from './monolithAnimation';
+
+// Populate chunkStock and chunksToAnimateInfo
+// ...
+
+// Animate a rune with id 1
+animateRune(1);
+```

@@ -1,0 +1,13 @@
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/src/intro.js)
+
+The code in this file is primarily responsible for managing the introduction sequence of the Moonolith project. It imports various modules and functions from other files in the project, such as animations, images, controls, and display settings.
+
+The `launchIntro` function is the main function that initiates the introduction sequence. It sets the initial view position, initializes the display, and triggers the 'collision' animation. It then changes the view position smoothly and launches a series of animations in sequence, each one waiting for the previous one to complete before starting. The function also handles the display of certain images at specific points in the sequence.
+
+The `skipIntro` function allows the user to skip the introduction sequence. It hides certain animations and images, unlocks the scroll, and launches the 'autourDuFeu' animation. It also resets the view position to its initial state.
+
+The `finalSkip` function is called at the end of the introduction sequence or when the user chooses to skip the intro. It hides the 'skipIntro' button, displays the 'faqButtonOpen' if it's the user's first time, toggles the music, unlocks the controls, and displays the 'panneau' and 'palette'.
+
+The `monolithGoUpDuringIntro` function is responsible for creating an effect of the monolith rising during the introduction sequence. It increments the `monolithDisplayHeightIntro` variable over time, creating a visual effect of the monolith rising.
+
+The `displayPanneau` function displays a panel with instructions for the user. It checks the user's browser language and displays the appropriate image. It also launches the 'panneauRainbow' animation and displays the 'panneauDecor' image.

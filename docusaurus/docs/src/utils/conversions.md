@@ -1,0 +1,11 @@
+[View code on GitHub](https://github.com/LaGuerrePiece/moonolith/blob/master/src/utils/conversions.js)
+
+The code in this file is primarily concerned with handling mouse interactions within the Moonolith project. It provides a set of utility functions that can be used to determine the position of the mouse within different contexts, such as within a grid, a circle, a square, or relative to a specific layer.
+
+The `isInCircle` and `isInSquare` functions check if the mouse position is within a given circle or square, respectively. They first convert the mouse position to the coordinate system of a specified layer using the `convertToLayer` function, and then perform the geometric calculations. The `convertToLayer` function adjusts the coordinates based on the position of the specified layer, which can be an image, a GUI element, or an FAQ element.
+
+The `mousePosInGrid` function calculates the mouse position within a grid. It first gets the position of the canvas element relative to the viewport, and then calculates the grid coordinates by subtracting the canvas position from the mouse position and dividing by the scale factor and pixel size.
+
+The `convertToMonolithPos` function converts the mouse position to the coordinate system of the Monolith, which is a specific element within the project. It adjusts the coordinates based on the position and size of the Monolith, and returns `undefined` if the resulting position is outside the Monolith.
+
+These functions can be used throughout the Moonolith project to handle mouse interactions with various elements, such as selecting an object, dragging and dropping, or hovering over an element to display a tooltip.
